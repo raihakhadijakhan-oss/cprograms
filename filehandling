@@ -1,0 +1,29 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+#define len 20
+int readline(char ctr[], int n);
+int main() {
+	FILE* fp = NULL; char str[len];
+	fp = fopen("c:\\tr\\student.txt", "w");
+	if (fp == NULL) { printf("\n----file can not be created---\n"); 
+	}
+		else {
+			printf("\nEnter the words :  ");
+			readline(str, len);
+			fputs(str, fp);
+			fclose(fp);
+			printf("\n ---YOUR FILE HAS BEEN CREATED__\n");
+		}
+	
+}
+int readline(char ctr[], int n) {
+	int ch, i=0;
+	while ((ch = getchar()) != '\n' && ch != EOF)
+		if(i<n)
+		ctr[i++] = ch;
+	ctr[i] = '\0';
+	return i;
+
+
+}
